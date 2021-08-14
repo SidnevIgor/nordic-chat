@@ -1,0 +1,38 @@
+<div class="login-container">
+  <form class="form-signin" #f="ngForm">
+    <div class="logo-container">
+      <mat-icon class="mat-icon-logo">terrain</mat-icon>
+    </div>
+    <mat-form-field appearance="fill" class="form-control">
+      <mat-label>Email</mat-label>
+      <input class="form-input" matInput type="email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-control">
+      <mat-label>Password</mat-label>
+      <input class="form-input" matInput type="password" [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+        Please enter at least 6 characters
+      </mat-error>
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-divider></mat-divider>
+      <button mat-raised-button color="accent" class="action-btn">
+        Sign Up
+      </button>
+      <button mat-raised-button color="primary" class="action-btn">
+        Sign In
+      </button>
+    <mat-divider></mat-divider>
+    <button mat-icon-button color="primary" (click)="signIn()" class="google-auth">
+      <mat-icon>login</mat-icon>
+    </button>
+  </form>
+</div>

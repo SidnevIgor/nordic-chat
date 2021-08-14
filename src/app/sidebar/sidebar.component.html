@@ -1,0 +1,14 @@
+<div class="sidebar">
+  <div
+  [class]="person.chatId==chatId ? 'person-chosen' : 'person'"
+  *ngFor="let person of participants"
+  (click)="selectPerson(person.chatId)"
+  >
+    <h2>{{person.displayName}}</h2>
+  </div>
+  <div class="add-chat-block">
+    <button mat-fab color="primary" (click)="openProposedUsers()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>

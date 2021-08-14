@@ -1,0 +1,23 @@
+.sidebar {
+  height: 100%;
+  width: 100%;
+  background-color: #1A192E;
+}
+.person {
+  width: 99%;
+  height: 10%;
+  color: white;
+  padding-left: 2%;
+}
+.person-chosen {
+  width: 99%;
+  height: 10%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.2), #1A192E);
+  color: white;
+  padding-left: 2%;
+  border-radius: 5px;
+}
+.add-chat-block {
+  text-align: center;
+  margin-top: 5%;
+}

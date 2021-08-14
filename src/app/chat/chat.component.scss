@@ -1,0 +1,65 @@
+.chat {
+  height: 100%;
+  width: 100%;
+  background-color: #1A192E;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+.messages-container {
+  width: 100%;
+  height: 90%;
+  overflow-y: scroll;
+}
+.message-line {
+  width: 100%;
+  height: 10%;
+}
+.message-left {
+  float: left;
+  max-width: 50%;
+  height: auto;
+  background-color: #383576;
+  color: #ACACAD;
+  border: 1px solid #000000;
+  padding: 6px 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 1.0em;
+  margin-left: 1%;
+}
+.message-right {
+  float: right;
+  max-width: 50%;
+  height: auto;
+  border: 1px solid #4D38A2;
+  background-color: #4D38A2;
+  color: white;
+  padding: 6px 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 1.0em;
+  margin-right: 1%;
+}
+.new-message-container {
+  width: 100%;
+  height: 10%;
+  text-align: center;
+}
+.new-message-input {
+  width: 90%;
+  height: 60%;
+  font-size: 1.1em;
+  color: white;
+  background-color: transparent;
+  border: #8A8A8B 2px solid;
+  border-radius: 5px;
+}
+.new-message-button {
+  height: 30%;
+}

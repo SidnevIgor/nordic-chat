@@ -1,0 +1,4 @@
+<div class="sidebar-chat-container">
+  <sidebar [participants]="participants" (selectChat)="onChatSelection($event)" [chatId]="currentChatId"></sidebar>
+  <chat [messages]="messages" [userId]="userId" [chatId]="currentChatId"></chat>
+</div>

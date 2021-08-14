@@ -1,0 +1,21 @@
+<div class="chat">
+  <div class="messages-container">
+    <div class="message-line" *ngFor="let message of messages">
+      <div [class]="message.userId==userId?'message-right':'message-left'">
+        {{message.text}}
+      </div>
+    </div>
+  </div>
+  <div class="new-message-container">
+    <input type="name" class="new-message-input" (keyup)="messageChange($event)">
+    <button type="button"
+            name="button"
+            mat-icon-button
+            placeholder="Write a message"
+            class="new-message-button"
+            (click)="addNewMessage()"
+            >
+      <mat-icon [ngStyle]="{'color':'white'}">send</mat-icon>
+    </button>
+  </div>
+</div>

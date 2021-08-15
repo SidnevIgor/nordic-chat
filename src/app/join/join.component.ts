@@ -7,7 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./join.component.scss']
 })
 export class JoinComponent {
-  id;
+  id: string;
   user;
   constructor(private router:Router, private route: ActivatedRoute) {
     this.id = this.route.snapshot.paramMap.get('id');

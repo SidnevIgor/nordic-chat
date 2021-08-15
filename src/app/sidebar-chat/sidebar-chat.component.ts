@@ -24,6 +24,7 @@ export class SidebarChatComponent implements OnChanges {
   constructor(private chatService: ChatService, private utiService: UtilitiesService) {
     let chatsTemp = [];
     this.chatService.getAllChats().valueChanges().subscribe((chats$) => {
+      console.log("Chats$ are ", chats$);
       chats$.forEach((chat: Chat) => {
         let chatSelect = false;
         chat.participants.forEach((user) => {
@@ -36,6 +37,7 @@ export class SidebarChatComponent implements OnChanges {
         }
       });
       this.chats = [...chatsTemp];
+      console.log("Chats for now are: ", this.chats);
       chatsTemp = [];
       this.currentChatId = this.currentChatId.length > 0 ? this.currentChatId: this.chats[0].id;
       this.messages = this.utiService.convertObjToArr(this.chatService.getMessagesByChat(this.chats, this.currentChatId));

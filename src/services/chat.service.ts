@@ -18,10 +18,6 @@ export class ChatService {
   }
 
   public getMyParticipants(userId: string, chats: Chat[]): User[] {
-    console.log("Func is called: ");
-    console.log("userId: ", userId);
-    console.log("chats: ", chats);
-
     let myParticipants: Array<User> = [];
     for(let chat of chats) {
       for(let j=0; j < chat.participants.length; j++) {

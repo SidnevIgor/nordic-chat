@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule, Input } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { SidebarChatComponent } from './sidebar-chat/sidebar-chat.component';
@@ -16,4 +16,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+}

@@ -13,7 +13,7 @@ import { User } from '../../interfaces/User';
   templateUrl: './sidebar-chat.component.html',
   styleUrls: ['./sidebar-chat.component.scss']
 })
-export class SidebarChatComponent implements OnChanges {
+export class SidebarChatComponent {
 
   currentChatId: string = "";
   userId = localStorage.getItem("userId");
@@ -22,6 +22,7 @@ export class SidebarChatComponent implements OnChanges {
   participants: Array<User> = [];
 
   constructor(private chatService: ChatService, private utiService: UtilitiesService) {
+    console.log("The userId at this point is ", this.userId)
     let chatsTemp = [];
     this.chatService.getAllChats().valueChanges().subscribe((chats$) => {
       console.log("Chats$ are ", chats$);
@@ -43,9 +44,6 @@ export class SidebarChatComponent implements OnChanges {
       this.messages = this.utiService.convertObjToArr(this.chatService.getMessagesByChat(this.chats, this.currentChatId));
       this.participants = this.chatService.getMyParticipants(this.userId, this.chats);
     })
-  }
-  ngOnChanges(changes: SimpleChanges) {
-    console.log("Haha I found you");
   }
   onChatSelection = (chatId) => {
     this.currentChatId = chatId;

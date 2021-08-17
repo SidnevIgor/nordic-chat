@@ -21,10 +21,13 @@ export class AppComponent {
       authService.user$.subscribe(user => {
         if(user) {
           console.log("Got a user", user);
-
+          localStorage.setItem('userId', user.uid);
+          
           userService.save(user).then(() => {
             userService.get(user.uid).valueChanges().subscribe((user$) => {this.user = user$});
-          });
+          }).catch((er) => {
+            console.log("Error has occured");
+          })
         }
       });
     }

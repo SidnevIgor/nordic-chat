@@ -13,9 +13,7 @@ export class UserService {
       displayName: user.displayName,
       email: user.email,
       uid: user.uid
-    }).then(() => {
-      localStorage.setItem('userId', user.uid);
-    })
+    });
   }
   get(uid: string): AngularFireObject<firebase.User> {
     return this.db.object('/users/'+uid);

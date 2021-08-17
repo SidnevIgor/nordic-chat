@@ -32,6 +32,7 @@ export class LoginComponent {
   async signIn() {
     let {user} = await this.authService.loginWithEmail();
     if(user) {
+      localStorage.setItem('userId', user.uid);
       this.router.navigate(['/']);
     }
   }

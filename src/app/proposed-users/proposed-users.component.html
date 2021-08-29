@@ -3,4 +3,12 @@
     <span mat-line>{{user.displayName}}</span>
     <span mat-line>{{user.email}}</span>
   </a>
+  <mat-divider></mat-divider>
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Invitation link</mat-label>
+    <input matInput type="text" [(ngModel)]="inviteLink" disabled>
+    <button matSuffix mat-icon-button aria-label="Clear" [cdkCopyToClipboard]="inviteLink">
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  </mat-form-field>
 </mat-nav-list>

@@ -33,13 +33,13 @@ export class ProposedUsersComponent {
     })
   }
   proposedUsers: firebase.User[] = [];
+  inviteLink: string = "test inv link";
 
   createChat(userB) {
     let userId = localStorage.getItem("userId");
     this.userService.get(userId).valueChanges().subscribe((userA) => {
       this.chatService.addChat(userA, userB);
     })
-
     this._bottomSheetRef.dismiss();
     event.preventDefault();
   }

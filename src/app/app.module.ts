@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //components
 import { AppComponent } from './app.component';
@@ -56,7 +57,8 @@ import { JoinComponent } from './join/join.component';
     MatIconModule,
     MatBottomSheetModule,
     MatListModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    ClipboardModule
   ],
   providers: [
     ChatService,

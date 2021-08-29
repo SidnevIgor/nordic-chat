@@ -33,7 +33,7 @@ export class ProposedUsersComponent {
     })
   }
   proposedUsers: firebase.User[] = [];
-  inviteLink: string = "test inv link";
+  inviteLink: string = `http://localhost:4200/join/${localStorage.getItem("userId")}`;
 
   createChat(userB) {
     let userId = localStorage.getItem("userId");

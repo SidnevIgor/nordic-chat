@@ -4,8 +4,8 @@
     <span mat-line>{{user.email}}</span>
   </a>
   <mat-divider></mat-divider>
-  <mat-form-field class="example-form-field" appearance="fill">
-    <mat-label>Invitation link</mat-label>
+  <mat-form-field class="inviteLink-block" appearance="fill">
+    <mat-label>Invite by link</mat-label>
     <input matInput type="text" [(ngModel)]="inviteLink" disabled>
     <button matSuffix mat-icon-button aria-label="Clear" [cdkCopyToClipboard]="inviteLink">
       <mat-icon>content_copy</mat-icon>

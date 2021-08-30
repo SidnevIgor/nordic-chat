@@ -10,27 +10,5 @@ import firebase from 'firebase/app';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private authService: AuthService,
-              private userService: UserService,
-              private router: Router) {
-    let userId = localStorage.getItem("userId");
-    if(userId) {
-      userService.get(userId).valueChanges().subscribe((user$) => {this.user = user$});
-    }
-    else {
-      authService.user$.subscribe(user => {
-        if(user) {
-          console.log("Got a user", user);
-          localStorage.setItem('userId', user.uid);
-          
-          userService.save(user).then(() => {
-            userService.get(user.uid).valueChanges().subscribe((user$) => {this.user = user$});
-          }).catch((er) => {
-            console.log("Error has occured");
-          })
-        }
-      });
-    }
-  }
-  user: firebase.User;
+  constructor() {}
 }

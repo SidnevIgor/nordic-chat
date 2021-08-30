@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service' 
 import { FormGroup, FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -18,7 +19,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginComponent {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, 
+              private router: Router, 
+              private route: ActivatedRoute,
+              private userService: UserService,) { 
+    let userId = localStorage.getItem("userId");
+
+  }
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email
@@ -30,10 +37,12 @@ export class LoginComponent {
   matcher = new MyErrorStateMatcher();
 
   async signIn() {
-    let {user} = await this.authService.loginWithEmail();
+    let { user } = await this.authService.loginWithEmail();
     if(user) {
       localStorage.setItem('userId', user.uid);
-      this.router.navigate(['/']);
+      this.userService.save(user).then(() => {
+        this.router.navigate(['/']);
+      });
     }
   }
 }

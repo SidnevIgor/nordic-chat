@@ -18,6 +18,6 @@ export class AuthService {
     this.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
   }
   logout() {
-    this.auth.signOut()
+    this.auth.signOut();
   }
 }

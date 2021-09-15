@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
+import { ChatService } from '../../services/chat.service'
 import { User } from '../../interfaces/User'; 
 import { Subscription } from 'rxjs';
 
@@ -26,7 +27,8 @@ export class LoginComponent {
   constructor(private authService: AuthService, 
               private router: Router, 
               private route: ActivatedRoute,
-              private userService: UserService) {
+              private userService: UserService,
+              private chatService: ChatService) {
     
     this.route.queryParams.subscribe(params => {
       this.contactId = params['invitedBy'];
@@ -52,7 +54,7 @@ export class LoginComponent {
       localStorage.setItem('userId', user.uid);
       if(this.contactId) {
         this.userService.saveWithContact(user, [this.contactId]).then(() => {
-          this.$invitor = this.userService.get(this.contactId).valueChanges().subscribe((invitor) => {
+          this.$invitor = this.userService.get(this.contactId).valueChanges().subscribe((invitor: User) => {
             if(invitor.contacts) {
               invitor.contacts.push(user.uid);
               this.$invitor.unsubscribe();
@@ -62,11 +64,19 @@ export class LoginComponent {
               this.$invitor.unsubscribe();
             }
             this.userService.saveWithContact(invitor, invitor.contacts).then(() => {
-              this.router.navigate(['/']);
+              let invited: any = {
+                displayName: user.displayName,
+                email: user.email,
+                uid: user.uid,
+                contacts: [this.contactId]
+              };
+              this.chatService.addChat(invited, invitor).then(() => {
+                this.router.navigate(['/']);
+              });
             });
           });
         })
-      }
+      }  
       else {
         this.userService.save(user).then(() => {
           this.router.navigate(['/']);

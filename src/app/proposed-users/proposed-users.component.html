@@ -1,8 +1,22 @@
 <mat-nav-list>
-  <a mat-list-item (click)="createChat(user)" *ngFor="let user of proposedUsers">
-    <span mat-line>{{user.displayName}}</span>
-    <span mat-line>{{user.email}}</span>
+  <h3>Invite via</h3>
+  <a href="https://api.whatsapp.com/send?text={{this.inviteLink}}">
+    <button matSuffix 
+            mat-icon-button 
+            aria-label="Clear" 
+            color="accent">
+      <mat-icon>whatsapp</mat-icon>
+    </button>  
   </a>
+  <a href="https://t.me/share/url?url={{this.inviteLink}}">
+    <button matSuffix 
+            mat-icon-button 
+            aria-label="Clear" 
+            color="primary">
+      <mat-icon>telegram</mat-icon>
+    </button>
+  </a>
+  
   <mat-divider></mat-divider>
   <mat-form-field class="inviteLink-block" appearance="fill">
     <mat-label>Invite by link</mat-label>

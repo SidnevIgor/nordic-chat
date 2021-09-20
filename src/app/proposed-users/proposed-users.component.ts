@@ -27,13 +27,9 @@ export class ProposedUsersComponent {
     private _bottomSheetRef: MatBottomSheetRef<ProposedUsersComponent>,
     private userService: UserService,
     private chatService: ChatService
-  ) {
-    this.userService.getAll().valueChanges().subscribe((users) => {
-      this.proposedUsers = users;
-    })
-  }
-  proposedUsers: firebase.User[] = [];
-  inviteLink: string = `http://localhost:4200/join/${localStorage.getItem("userId")}`;
+  ) {}
+  userId: string = localStorage.getItem("userId") || '';
+  inviteLink: string = `http://localhost:4200/join/${this.userId}`;
 
   createChat(userB) {
     let userId = localStorage.getItem("userId");

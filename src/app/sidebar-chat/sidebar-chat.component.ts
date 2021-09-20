@@ -38,9 +38,11 @@ export class SidebarChatComponent {
         });
         this.chats = [...chatsTemp];
         chatsTemp = [];
-        this.currentChatId = this.currentChatId.length > 0 ? this.currentChatId: this.chats[0].id;
-        this.messages = this.utiService.convertObjToArr(this.chatService.getMessagesByChat(this.chats, this.currentChatId));
-        this.participants = this.chatService.getMyParticipants(this.userId, this.chats);
+        if(this.chats.length > 0) {
+          this.currentChatId = this.currentChatId.length > 0 ? this.currentChatId: this.chats[0].id;
+          this.messages = this.utiService.convertObjToArr(this.chatService.getMessagesByChat(this.chats, this.currentChatId));
+          this.participants = this.chatService.getMyParticipants(this.userId, this.chats);
+        }
       });
     }
   }

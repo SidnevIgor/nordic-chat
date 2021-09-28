@@ -1,4 +1,7 @@
 <div class="sidebar">
+  <button mat-icon-button color="accent" class="toggleSidebar" (click)="toggleSidebar()">
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
   <div
   [class]="person.chatId==chatId ? 'person-chosen' : 'person'"
   *ngFor="let person of participants"

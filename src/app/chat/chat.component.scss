@@ -9,7 +9,7 @@
 }
 .messages-container {
   width: 100%;
-  height: 90%;
+  height: 80%;
   overflow-y: scroll;
 }
 .message-line {
@@ -61,4 +61,7 @@
 }
 .new-message-button {
   height: 30%;
+}
+.toggleSidebar {
+  height: 10%;
 }

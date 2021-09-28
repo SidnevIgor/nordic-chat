@@ -1,22 +1,28 @@
 .sidebar-chat-container {
-  width:100%;
-  height:100%;
-  display: flex;
+  width:100% !important;
+  height:100% !important;
+  display: flex !important;
 }
 ::-webkit-scrollbar {
     width: 0;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
-sidebar {
-  display: inline-block;
+mat-drawer-container {
   height: 100%;
+}
+mat-drawer {
   width: 30%;
-  border: 1px solid grey;
+  display: inline-block;
+  height: 100% !important;
+}
+sidebar {
+  height: 100%;
+  width: 100%;
 }
 chat {
   display: inline-block;
   height: 100%;
-  width: 70%;
+  width: 100%;
 }
 login {
   display: inline-block;

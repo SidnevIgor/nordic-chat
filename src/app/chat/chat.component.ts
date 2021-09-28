@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ChatService } from '../../services/chat.service';
 import { Message } from '../../interfaces/Message';
 
@@ -14,11 +14,16 @@ export class ChatComponent {
   @Input() messages;
   @Input() userId;
   @Input() chatId;
+  @Input() sideNavOpened;
+  @Output() toggleSidenav = new EventEmitter();
 
   messageChange = (event: any) => {
     this.message = event.target.value;
   }
   addNewMessage = () => {
     this.chatService.addMessage(this.chatId, this.userId, this.message);
+  }
+  toggleSidebar = () => {
+    this.toggleSidenav.emit();
   }
 }

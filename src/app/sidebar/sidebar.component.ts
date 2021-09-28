@@ -11,11 +11,15 @@ export class SidebarComponent {
   @Input() participants = [];
   @Input() chatId = "";
   @Output() selectChat = new EventEmitter();
+  @Output() toggleSidenav = new EventEmitter();
 
   selectPerson = (chatId) => {
     this.selectChat.emit(chatId);
   }
+  toggleSidebar = () => {
+    this.toggleSidenav.emit();
+  }
   openProposedUsers = () => {
     this.proposedSheet.openBottomSheet();
-  }
+  } 
 }

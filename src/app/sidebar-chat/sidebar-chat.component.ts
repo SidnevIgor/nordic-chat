@@ -20,6 +20,7 @@ export class SidebarChatComponent {
   chats: Array<Chat> = [];
   messages: Array<Message> = [];
   participants: Array<User> = [];
+  sideNavOpened: boolean = false;
 
   constructor(private chatService: ChatService, private utiService: UtilitiesService) {
     if(this.userId) {
@@ -49,5 +50,9 @@ export class SidebarChatComponent {
   onChatSelection = (chatId) => {
     this.currentChatId = chatId;
     this.messages = this.utiService.convertObjToArr(this.chats.find((chat) => chat.id == chatId).messages);
+  }
+  onSidenavToggle = () => {
+    console.log("Im toggling sidenav");
+    this.sideNavOpened = !this.sideNavOpened;
   }
 }

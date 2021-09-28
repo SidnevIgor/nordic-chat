@@ -15,6 +15,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
 //components
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -58,7 +59,8 @@ import { JoinComponent } from './join/join.component';
     MatBottomSheetModule,
     MatListModule,
     MatSlideToggleModule,
-    ClipboardModule
+    ClipboardModule,
+    MatSidenavModule
   ],
   providers: [
     ChatService,

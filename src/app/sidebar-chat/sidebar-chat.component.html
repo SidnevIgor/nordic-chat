@@ -1,4 +1,18 @@
-<div class="sidebar-chat-container">
-  <sidebar [participants]="participants" (selectChat)="onChatSelection($event)" [chatId]="currentChatId"></sidebar>
-  <chat [messages]="messages" [userId]="userId" [chatId]="currentChatId"></chat>
-</div>
+<mat-drawer-container>
+  <mat-drawer #drawer mode="side" [opened]="sideNavOpened">
+    <sidebar [participants]="participants" 
+             (selectChat)="onChatSelection($event)" 
+             [chatId]="currentChatId"
+             (toggleSidenav)="onSidenavToggle()"
+             ></sidebar>
+  </mat-drawer>
+  
+  <mat-drawer-content>
+    <chat [messages]="messages" 
+          [userId]="userId" 
+          [chatId]="currentChatId"
+          [sideNavOpened]="sideNavOpened"
+          (toggleSidenav)="onSidenavToggle()"
+          ></chat>
+  </mat-drawer-content>
+</mat-drawer-container>

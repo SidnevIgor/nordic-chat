@@ -51,16 +51,21 @@
   text-align: center;
 }
 .new-message-input {
-  width: 90%;
+  width: 83%;
   height: 60%;
   font-size: 1.1em;
   color: white;
   background-color: transparent;
   border: #8A8A8B 2px solid;
   border-radius: 5px;
+  display: inline-block;
+}
+.new-message-button-container {
+  display: inline-block;
+  width: 5%;
 }
 .new-message-button {
-  height: 30%;
+  margin-left: -40%;
 }
 .toggleSidebar {
   height: 10%;

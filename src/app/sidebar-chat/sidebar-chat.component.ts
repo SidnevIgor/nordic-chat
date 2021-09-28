@@ -20,7 +20,7 @@ export class SidebarChatComponent {
   chats: Array<Chat> = [];
   messages: Array<Message> = [];
   participants: Array<User> = [];
-  sideNavOpened: boolean = false;
+  sideNavOpened: boolean = true;
 
   constructor(private chatService: ChatService, private utiService: UtilitiesService) {
     if(this.userId) {

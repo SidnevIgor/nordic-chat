@@ -15,14 +15,16 @@
   </div>
   <div class="new-message-container">
     <input type="name" class="new-message-input" (keyup)="messageChange($event)">
-    <button type="button"
+    <div class="new-message-button-container">
+      <button type="button"
             name="button"
             mat-icon-button
             placeholder="Write a message"
             class="new-message-button"
             (click)="addNewMessage()"
             >
-      <mat-icon [ngStyle]="{'color':'white'}">send</mat-icon>
-    </button>
+        <mat-icon [ngStyle]="{'color':'white'}">send</mat-icon>
+      </button>
+    </div>
   </div>
 </div>

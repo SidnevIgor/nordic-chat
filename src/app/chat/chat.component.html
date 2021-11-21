@@ -1,12 +1,15 @@
 <div class="chat">
   <div class="toggleSidebar">
-    <div [hidden]="sideNavOpened">
+    <div *ngIf="!sideNavOpened">
       <button mat-icon-button color="accent" (click)="toggleSidebar()">
         <mat-icon>arrow_forward_ios</mat-icon>
       </button>
     </div>
   </div>
-  <div class="messages-container">
+  <div class="participant-container">
+    <h1 *ngIf="participant && !sideNavOpened">{{participant.displayName}}</h1>
+  </div>
+  <div [ngClass]="!sideNavOpened ? 'messages-container' : 'messages-container-toggleOff'">
     <div class="message-line" *ngFor="let message of messages">
       <div [class]="message.userId==userId?'message-right':'message-left'">
         {{message.text}}
@@ -14,7 +17,11 @@
     </div>
   </div>
   <div class="new-message-container">
-    <input type="name" class="new-message-input" (keyup)="messageChange($event)">
+    <input type="name" 
+           class="new-message-input" 
+           (keyup)="messageChange($event)" 
+           (keyup.enter)="addNewMessage()" 
+           [value]="message">
     <div class="new-message-button-container">
       <button type="button"
             name="button"

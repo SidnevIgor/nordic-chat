@@ -16,6 +16,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 //components
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -31,6 +33,8 @@ import { UtilitiesService } from '../services/utilities.service';
 import { AuthGuardService } from '../services/auth-guard.service';
 import { ProposedUsersComponent, BottomSheetProposedUsers } from './proposed-users/proposed-users.component';
 import { JoinComponent } from './join/join.component';
+import { StatsComponent } from './stats/stats.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -41,7 +45,9 @@ import { JoinComponent } from './join/join.component';
     LoginComponent,
     SidebarChatComponent,
     ProposedUsersComponent,
-    JoinComponent
+    JoinComponent,
+    StatsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +66,9 @@ import { JoinComponent } from './join/join.component';
     MatListModule,
     MatSlideToggleModule,
     ClipboardModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTooltipModule,
+    MatSnackBarModule
   ],
   providers: [
     ChatService,

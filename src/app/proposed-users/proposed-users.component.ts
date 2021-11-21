@@ -5,6 +5,11 @@ import { UserService } from '../../services/user.service';
 import { ChatService } from '../../services/chat.service';
 import { User } from '../../interfaces/User';
 import firebase from 'firebase/app';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +31,8 @@ export class ProposedUsersComponent {
   constructor(
     private _bottomSheetRef: MatBottomSheetRef<ProposedUsersComponent>,
     private userService: UserService,
-    private chatService: ChatService
+    private chatService: ChatService,
+    private _snackBar: MatSnackBar
   ) {}
   userId: string = localStorage.getItem("userId") || '';
   inviteLink: string = `http://localhost:4200/join/${this.userId}`;
@@ -38,5 +44,12 @@ export class ProposedUsersComponent {
     })
     this._bottomSheetRef.dismiss();
     event.preventDefault();
+  }
+  openSnackBar() {
+    this._snackBar.open('Link copied to the clipboard', 'Ok', {
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      duration: 2000
+    });
   }
 }

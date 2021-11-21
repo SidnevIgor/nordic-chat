@@ -30,6 +30,10 @@ export class ChatService {
     }
     return myParticipants;
   }
+  public getChatParticipants(chatId: string): AngularFireList<User> {
+    console.log("Func is called - ", chatId);
+    return this.db.list('/chats/' + chatId + '/participants/');
+  }
   public getMessagesByChat(chats: Chat[], currentChatId: string): Message[] {
     let messages = chats.find((chat) => chat.id == currentChatId).messages;
     return messages;
@@ -43,10 +47,14 @@ export class ChatService {
     })
   }
   public addMessage(chatId, userId, message) {
-    this.db.list('/chats/' + chatId + '/messages/').push({
+    return this.db.list('/chats/' + chatId + '/messages/').push({
       text: message,
       userId: userId,
-      chatId: chatId
+      chatId: chatId,
+      created: new Date().toString()
     })
+  }
+  public cleanMessages() {
+    
   }
 }

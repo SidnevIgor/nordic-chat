@@ -21,7 +21,14 @@
   <mat-form-field class="inviteLink-block" appearance="fill">
     <mat-label>Invite by link</mat-label>
     <input matInput type="text" [(ngModel)]="inviteLink" disabled>
-    <button matSuffix mat-icon-button aria-label="Clear" [cdkCopyToClipboard]="inviteLink">
+    <button matSuffix mat-icon-button 
+            aria-label="Clear" 
+            [cdkCopyToClipboard]="inviteLink"
+            matTooltip="Copy invite link"
+            [matTooltipShowDelay]="100"
+            [matTooltipHideDelay]="1000"
+            (click)="openSnackBar()"
+            >
       <mat-icon>content_copy</mat-icon>
     </button>
   </mat-form-field>

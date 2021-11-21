@@ -16,6 +16,7 @@ import { User } from '../../interfaces/User';
 export class SidebarChatComponent {
 
   currentChatId: string = "";
+  currentParticipant: User;
   userId = localStorage.getItem("userId");
   chats: Array<Chat> = [];
   messages: Array<Message> = [];
@@ -43,6 +44,11 @@ export class SidebarChatComponent {
           this.currentChatId = this.currentChatId.length > 0 ? this.currentChatId: this.chats[0].id;
           this.messages = this.utiService.convertObjToArr(this.chatService.getMessagesByChat(this.chats, this.currentChatId));
           this.participants = this.chatService.getMyParticipants(this.userId, this.chats);
+          this.chatService.getChatParticipants(this.currentChatId).valueChanges()
+          .subscribe((users) => {
+            this.currentParticipant = users.find((user) => user.uid != this.userId);
+            console.log("Found user is ", this.currentParticipant);
+          })
         }
       });
     }
@@ -52,7 +58,6 @@ export class SidebarChatComponent {
     this.messages = this.utiService.convertObjToArr(this.chats.find((chat) => chat.id == chatId).messages);
   }
   onSidenavToggle = () => {
-    console.log("Im toggling sidenav");
     this.sideNavOpened = !this.sideNavOpened;
   }
 }

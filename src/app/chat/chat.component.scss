@@ -2,6 +2,7 @@
   height: 100%;
   width: 100%;
   background-color: #1A192E;
+  overflow: hidden;
 }
 ::-webkit-scrollbar {
     width: 0;  /* Remove scrollbar space */
@@ -10,6 +11,11 @@
 .messages-container {
   width: 100%;
   height: 80%;
+  overflow-y: scroll;
+}
+.messages-container-toggleOff {
+  width: 100%;
+  height: 90%;
   overflow-y: scroll;
 }
 .message-line {
@@ -46,14 +52,15 @@
   margin-right: 1%;
 }
 .new-message-container {
-  width: 100%;
   height: 10%;
+  position: sticky;
+  width: 100%;
   text-align: center;
 }
 .new-message-input {
-  width: 83%;
+  width: 90%;
   height: 60%;
-  font-size: 1.1em;
+  font-size: 1.5em;
   color: white;
   background-color: transparent;
   border: #8A8A8B 2px solid;
@@ -69,4 +76,13 @@
 }
 .toggleSidebar {
   height: 10%;
+  float: left;
+  max-width: 10%;
+}
+.participant-container {
+  text-align: center;
+  overflow: hidden;
+}
+h1 {
+  color: white;
 }

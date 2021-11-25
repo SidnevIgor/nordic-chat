@@ -3,7 +3,20 @@
     <mat-icon class="mat-icon-logo">terrain</mat-icon>
   </button>
   <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon class="mat-icon-account">person</mat-icon>
+  <button 
+    mat-icon-button 
+    class="example-icon favorite-icon"
+    mat-button [matMenuTriggerFor]="beforeMenu" 
+    ><mat-icon class="mat-icon-account">settings</mat-icon>
   </button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button class="account-menu" mat-menu-item>
+      <mat-icon aria-hidden="false" class="account-menu-icon">account_circle</mat-icon>
+      Account
+    </button>
+    <button class="account-menu" mat-menu-item>
+      <mat-icon aria-hidden="false" class="account-menu-icon">format_color_fill</mat-icon>
+      Theme
+    </button>
+  </mat-menu>
 </mat-toolbar>

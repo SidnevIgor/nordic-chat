@@ -1,6 +1,6 @@
 .sidebar-chat-container {
   width:100% !important;
-  height:100% !important;
+  height:80% !important;
   display: flex !important;
 }
 ::-webkit-scrollbar {
@@ -8,6 +8,10 @@
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
 mat-drawer-container {
+  height: 92%;
+  padding: 0;
+}
+mat-drawer-content {
   height: 100%;
 }
 mat-drawer {
@@ -15,19 +19,4 @@ mat-drawer {
   display: inline-block;
   height: 100% !important;
   border-right-color: #4D38A2;
-}
-sidebar {
-  height: 100%;
-  width: 100%;
-}
-chat {
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-}
-login {
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  //border: 1px solid purple;
 }

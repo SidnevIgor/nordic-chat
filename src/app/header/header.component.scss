@@ -2,6 +2,7 @@ mat-toolbar {
   background-color: #1A192E;
   border-bottom: 1px solid #4D38A2;
   position: sticky;
+  height: 8%;
 }
 .example-spacer {
   flex: 1 1 auto;
@@ -13,4 +14,11 @@ mat-toolbar {
 .mat-icon-account {
   color: white;
   font-size: 25px;
+}
+.account-menu {
+  color: #4D38A2;
+  font-weight: bold;
+}
+.account-menu-icon {
+  color: #4D38A2;
 }

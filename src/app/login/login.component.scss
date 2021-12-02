@@ -1,14 +1,15 @@
 .login-container {
   background-color: #1A192E;
   width: 100%;
-  height: 80%;
+  height: 92%;
   display: flex;
 }
 .form-signin {
   max-width: 330px;
   margin: 90px auto;
   text-align: center;
-  border: 2px solid red;
+  border: 1px solid white;
+  border-radius: 15px;
 }
 .form-input {
   color: white;
@@ -41,4 +42,7 @@
 }
 .action-btn {
   margin: 2%;
+}
+mat-divider {
+  border-color: transparent;
 }

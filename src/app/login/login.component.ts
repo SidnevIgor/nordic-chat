@@ -6,7 +6,7 @@ import { User } from '../../interfaces/User';
 import { Subscription } from 'rxjs';
 
 //form elements
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -37,15 +37,17 @@ export class LoginComponent {
   contactId: string;
   $invitor: Subscription;
 
-  //form elements
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email
-  ]);
-  passwordFormControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(6)
-  ]);
+  loginForm = new FormGroup({
+    emailFormControl: new FormControl('', [
+      Validators.required,
+      Validators.email
+    ]),
+    passwordFormControl: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6)
+    ])
+  })
+  
   matcher = new MyErrorStateMatcher();
 
   async signIn() {

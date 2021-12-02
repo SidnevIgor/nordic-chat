@@ -3,17 +3,15 @@
   <a href="https://api.whatsapp.com/send?text={{this.inviteLink}}">
     <button matSuffix 
             mat-icon-button 
-            aria-label="Clear" 
-            color="accent">
-      <mat-icon>whatsapp</mat-icon>
+            aria-label="Clear">
+      <mat-icon [ngStyle]="{'color':'green'}">whatsapp</mat-icon>
     </button>  
   </a>
   <a href="https://t.me/share/url?url={{this.inviteLink}}">
     <button matSuffix 
             mat-icon-button 
-            aria-label="Clear" 
-            color="primary">
-      <mat-icon>telegram</mat-icon>
+            aria-label="Clear">
+      <mat-icon [ngStyle]="{'color':'#0088cc'}">telegram</mat-icon>
     </button>
   </a>
   

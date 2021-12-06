@@ -11,11 +11,17 @@ export class AuthService {
   constructor(public auth: AngularFireAuth) {
     this.user$ = auth.authState;
   }
-  loginWithEmail() {
+  loginWithEmailAndPass(email: string, password: string): Promise<firebase.auth.UserCredential> {
+    return this.auth.signInWithEmailAndPassword(email, password);
+  }
+  loginWithEmail(): Promise<firebase.auth.UserCredential> {
     return this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
   loginWithLink() {
     this.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+  }
+  signUpWithEmailAndPass(email: string, password: string): Promise<firebase.auth.UserCredential> {
+    return this.auth.createUserWithEmailAndPassword(email, password);
   }
   logout() {
     this.auth.signOut();

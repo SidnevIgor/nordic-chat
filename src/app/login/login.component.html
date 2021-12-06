@@ -3,35 +3,63 @@
     <div class="logo-container">
       <mat-icon class="mat-icon-logo">terrain</mat-icon>
     </div>
+    <mat-form-field appearance="fill" class="form-control" *ngIf="formMode=='signup'">
+      <mat-label>Name</mat-label>
+      <input class="form-input" matInput formControlName="clientName" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="loginForm.controls.clientName.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
     <mat-form-field appearance="fill" class="form-control">
       <mat-label>Email</mat-label>
-      <input class="form-input" matInput type="email" formControlName="emailFormControl" [errorStateMatcher]="matcher">
-      <mat-error *ngIf="loginForm.controls.emailFormControl.hasError('email') && !loginForm.controls.emailFormControl.hasError('required')">
+      <input class="form-input" matInput type="email" formControlName="email" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="loginForm.controls.email.hasError('email') && !loginForm.controls.email.hasError('required')">
         Please enter a valid email address
       </mat-error>
-      <mat-error *ngIf="loginForm.controls.emailFormControl.hasError('required')">
+      <mat-error *ngIf="loginForm.controls.email.hasError('required')">
         Email is <strong>required</strong>
       </mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill" class="form-control">
       <mat-label>Password</mat-label>
-      <input class="form-input" matInput type="password" formControlName="passwordFormControl" [errorStateMatcher]="matcher">
-      <mat-error *ngIf="loginForm.controls.passwordFormControl.hasError('minlength') && !loginForm.controls.passwordFormControl.hasError('required')">
+      <input class="form-input" matInput type="password" formControlName="password" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="loginForm.controls.password.hasError('minlength') && !loginForm.controls.password.hasError('required')">
         Please enter at least 6 characters
       </mat-error>
-      <mat-error *ngIf="loginForm.controls.passwordFormControl.hasError('required')">
+      <mat-error *ngIf="loginForm.controls.password.hasError('required')">
         Password is <strong>required</strong>
       </mat-error>
     </mat-form-field>
     <mat-divider></mat-divider>
-      <button mat-raised-button color="accent" class="action-btn" [disabled]="!f.valid">
-        Sign Up
-      </button>
-      <button mat-raised-button color="primary" class="action-btn">
-        Sign In
-      </button>
+    <mat-slide-toggle
+      class="toggler" 
+      [checked]="true" 
+      color="primary"
+      (change)="onToggleChange()"
+      >
+        <b [style.color]="formMode=='signin'?'#3f51b5':'#f73378'">{{togglerDesc}}</b>
+    </mat-slide-toggle>
     <mat-divider></mat-divider>
-    <button mat-icon-button color="primary" (click)="signIn()" class="google-auth">
+      <button 
+        mat-raised-button 
+        color="accent" 
+        class="action-btn" 
+        *ngIf="formMode=='signup'"
+        (click)="signUp()"
+        >Sign Up</button>
+      <button 
+        mat-raised-button 
+        color="primary" 
+        class="action-btn" 
+        *ngIf="formMode=='signin'"
+        (click)="signIn()"
+        >Sign In</button>
+    <mat-divider></mat-divider>
+    <mat-error *ngIf="submitErrorMessage">
+      {{submitErrorMessage}}
+    </mat-error>
+    <mat-divider></mat-divider>
+    <button mat-icon-button color="primary" (click)="googleAuth()" class="google-auth">
       <mat-icon>alternate_email</mat-icon>
     </button>
   </form>

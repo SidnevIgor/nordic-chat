@@ -1,4 +1,4 @@
-<div class="chat">
+<div class="chat" [ngClass]="theme == 'dark' ? 'bg-dark': 'bg-light'">
   <div class="toggleSidebar">
     <div *ngIf="!sideNavOpened">
       <button mat-icon-button color="accent" (click)="toggleSidebar()">
@@ -9,7 +9,7 @@
   <div class="participant-container">
     <h1 *ngIf="participant && !sideNavOpened">{{participant.displayName}}</h1>
   </div>
-  <div [ngClass]="!sideNavOpened ? 'messages-container' : 'messages-container-toggleOff'">
+  <div [ngClass]="!sideNavOpened ? 'messages-container' : 'messages-container-toggleOff'" #messagesContainer>
     <div class="message-line" *ngFor="let message of messages">
       <div [class]="message.userId==userId?'message-right':'message-left'">
         {{message.text}}
@@ -28,8 +28,8 @@
             mat-icon-button
             placeholder="Write a message"
             class="new-message-button"
-            (click)="addNewMessage()"
-            >
+            (keyup.enter)="addNewMessage()"
+            (click)="addNewMessage()">
         <mat-icon [ngStyle]="{'color':'white'}">send</mat-icon>
       </button>
     </div>

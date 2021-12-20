@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div class="sidebar" [ngClass]="theme == 'dark' ? 'bg-dark': 'bg-light'">
   <button mat-icon-button color="accent" class="toggleSidebar" (click)="toggleSidebar()">
     <mat-icon>arrow_back_ios</mat-icon>
   </button>

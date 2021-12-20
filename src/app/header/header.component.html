@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar [ngClass]="theme == 'dark' ? 'bg-dark': 'bg-light'">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon class="mat-icon-logo">terrain</mat-icon>
   </button>
@@ -14,7 +14,7 @@
       <mat-icon aria-hidden="false" class="account-menu-icon">account_circle</mat-icon>
       Account
     </button>
-    <button class="account-menu" mat-menu-item>
+    <button class="account-menu" mat-menu-item (click)="onThemeToggle()">
       <mat-icon aria-hidden="false" class="account-menu-icon">format_color_fill</mat-icon>
       Theme
     </button>

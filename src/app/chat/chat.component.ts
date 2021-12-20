@@ -1,18 +1,32 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
 import { ChatService } from '../../services/chat.service';
 import { User } from '../../interfaces/User';
+import { ThemeService } from "src/theme/theme.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit {
-  constructor(private chatService: ChatService) {}
+export class ChatComponent implements OnInit, OnDestroy, AfterViewChecked {
+  constructor(
+    private chatService: ChatService,
+    private themeService: ThemeService) {}
   ngOnInit() {
-    console.log(this.chatId);
+    this.subs.push(
+      this.themeService.theme$.subscribe((theme) => {
+        this.theme = theme;
+      })
+    )
   }
-
+  ngAfterViewChecked() {
+    this.messagesContainer.nativeElement.scrollTop = this.messagesContainer.nativeElement.scrollHeight;
+  }
+  ngOnDestroy() {
+    this.subs.forEach((sub) => sub?.unsubscribe());
+  }
+  @ViewChild("messagesContainer") messagesContainer: ElementRef;
   message: string = "";
   @Input() participant: User;
   @Input() messages;
@@ -20,6 +34,8 @@ export class ChatComponent implements OnInit {
   @Input() chatId;
   @Input() sideNavOpened;
   @Output() toggleSidenav = new EventEmitter();
+  theme: string;
+  subs: Subscription[] = []; 
 
   messageChange = (event: any) => { 
     this.message = event.target.value;

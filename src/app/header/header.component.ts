@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subs.push(
       this.themeService.theme$.subscribe((theme) => {
+        console.log("The theme is ", theme);
         this.theme = theme;
       })
     );

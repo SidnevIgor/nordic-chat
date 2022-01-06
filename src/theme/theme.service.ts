@@ -14,6 +14,7 @@ export class ThemeService {
     localStorage.setItem("theme", theme);
   }
   toggleTheme() {
+    console.log("Theme toggled");
     let newTheme = this.getTheme() == "dark" ? "light" : "dark";
     this.setTheme(newTheme);
   }

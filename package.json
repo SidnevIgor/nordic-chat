@@ -28,6 +28,7 @@
     "@angular/router": "~9.1.0",
     "express": "^4.17.1",
     "firebase": "^8.7.1",
+    "heroku": "^7.59.2",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "typescript": "~3.8.3",
@@ -36,9 +37,9 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.0",
     "@angular/language-service": "~9.1.0",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",

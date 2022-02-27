@@ -10,19 +10,17 @@
 }
 .messages-container {
   width: 100%;
-  height: 70%;
+  height: 80%;
   overflow-y: scroll;
 }
 .messages-container-toggleOff {
   width: 100%;
-  height: 80%;
+  height: 90%;
   overflow-y: scroll;
 }
 .message-line {
   width: 100%;
   height: 10%;
-}
-.message-line:nth-child(1) {
   margin-top: 2%;
 }
 .message-left {
@@ -56,13 +54,13 @@
 }
 .new-message-container {
   height: 8%;
-  position: sticky;
-  width: 100%;
+  position: fixed;
   text-align: center;
-  padding-top: 6.5%;
+  bottom: 0;
+  right: 0;
 }
 .new-message-input {
-  width: 90%;
+  width: 80%;
   height: 70%;
   font-size: 1.5em;
   color: white;
@@ -73,10 +71,10 @@
 }
 .new-message-button-container {
   display: inline-block;
-  width: 5%;
+  width: 3%;
 }
 .new-message-button {
-  margin-left: -40%;
+  margin-left: 1px;
 }
 .toggleSidebar {
   height: 10%;
@@ -87,6 +85,6 @@
   text-align: center;
   overflow: hidden;
 }
-h1 {
+h2 {
   color: white;
 }

@@ -1,21 +1,31 @@
 .sidebar {
   height: 100%;
   width: 100%;
-  //background-color: #1A192E;
 }
 .person {
   width: 99%;
   height: 10%;
   color: white;
-  padding-left: 2%;
+  display: flex;
+  flex-direction: row;
 }
 .person-chosen {
   width: 99%;
   height: 10%;
-  background: linear-gradient(90deg, rgba(255,255,255,0.2), #1A192E);
   color: white;
-  padding-left: 2%;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+}
+.person-avatar {
+  height: 50px;
+  width: 50px;
+  background-color: red;
+  align-self: center;
+  border-radius: 100%;
+}
+.person-name {
+  align-self: center;
+  margin-left: 10px;
 }
 .add-chat-block {
   text-align: center;

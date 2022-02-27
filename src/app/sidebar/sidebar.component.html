@@ -3,11 +3,15 @@
     <mat-icon>arrow_back_ios</mat-icon>
   </button>
   <div
-  [class]="person.chatId==chatId ? 'person-chosen' : 'person'"
-  *ngFor="let person of participants"
-  (click)="selectPerson(person.chatId)"
-  >
-    <h2>{{person.displayName}}</h2>
+    [class]="person.chatId==chatId ? 'person-chosen' : 'person'"
+    *ngFor="let person of participants"
+    (click)="selectPerson(person)"
+  ><div class="person-avatar">
+    <div class="avatar"></div>
+  </div>
+  <div class="person-name">
+    <h4>{{person.displayName}}</h4>
+  </div>
   </div>
   <div class="add-chat-block">
     <button mat-fab color="primary" (click)="openProposedUsers()">

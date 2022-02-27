@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="participant-container">
-    <h1 *ngIf="participant && !sideNavOpened">{{participant.displayName}}</h1>
+    <h2 *ngIf="participant && !sideNavOpened">{{participant.displayName}}</h2>
   </div>
   <div [ngClass]="!sideNavOpened ? 'messages-container' : 'messages-container-toggleOff'" #messagesContainer>
     <div class="message-line" *ngFor="let message of messages">
@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-  <div class="new-message-container">
+  <div class="new-message-container" [style.left]="sideNavOpened ? '30%' : '0'">
     <input type="name" 
            class="new-message-input" 
            (keyup)="messageChange($event)" 
@@ -26,7 +26,6 @@
       <button type="button"
             name="button"
             mat-icon-button
-            placeholder="Write a message"
             class="new-message-button"
             (keyup.enter)="addNewMessage()"
             (click)="addNewMessage()">

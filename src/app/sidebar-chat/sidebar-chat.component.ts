@@ -46,16 +46,17 @@ export class SidebarChatComponent {
           this.participants = this.chatService.getMyParticipants(this.userId, this.chats);
           this.chatService.getChatParticipants(this.currentChatId).valueChanges()
           .subscribe((users) => {
+            console.log("Got users: ", users);
             this.currentParticipant = users.find((user) => user.uid != this.userId);
-            console.log("Found user is ", this.currentParticipant);
           })
         }
       });
     }
   }
-  onChatSelection = (chatId) => {
-    this.currentChatId = chatId;
-    this.messages = this.utiService.convertObjToArr(this.chats.find((chat) => chat.id == chatId).messages);
+  onChatSelection = (person) => {
+    this.currentChatId = person.chatId;
+    this.messages = this.utiService.convertObjToArr(this.chats.find((chat) => chat.id == person.chatId).messages);
+    this.currentParticipant = person;
   }
   onSidenavToggle = () => {
     this.sideNavOpened = !this.sideNavOpened;
